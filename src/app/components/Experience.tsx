@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Calendar, MapPin, Briefcase, Zap } from "lucide-react";
+import QQStudioImage from "../../assets/QQ-Studio.png";
 
 const experiences = [
   {
@@ -10,7 +11,7 @@ const experiences = [
     description: [
       "Built gameplay systems, AI, and levels in Unreal Engine using C++ and Blueprints, while supporting asset integration and scene setup."
     ],
-    image: "src/assets/QQ-Studio.png",
+    image: QQStudioImage,
     color: "from-white-500 to-green-500"
   },
   {

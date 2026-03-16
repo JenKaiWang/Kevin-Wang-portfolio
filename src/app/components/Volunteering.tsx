@@ -1,5 +1,9 @@
 import { motion } from "motion/react";
 import { Users, GraduationCap, Trophy, Heart, MapPin } from "lucide-react";
+import TSAImage from "../../assets/TSA.png";
+import ViceImage from "../../assets/vics.jpg";
+import BasketballImage from "../../assets/basketball.jpeg";
+import TAImage from "../../assets/TA.png";
 
 const volunteers = [
   {
@@ -10,7 +14,7 @@ const volunteers = [
       "Organized Taiwanese Association and U.S. cultural events for around 20 participants to promote student engagement and international connection."
     ],
     icon: Users,
-    image: "src/assets/TSA.png",
+    image: TSAImage,
     color: "from-pink-500 to-purple-500"
   },
   {
@@ -21,7 +25,7 @@ const volunteers = [
       "Organized events for 70+ participants, supported recruitment presentations reaching 100+ attendees, and represented the department in meetings to advocate for student rights."
     ],
     icon: Users,
-    image: "src/assets/vice.jpg",
+    image: ViceImage,
     color: "from-purple-500 to-cyan-500"
   },
   {
@@ -32,7 +36,7 @@ const volunteers = [
       "Achieved Top 32 in the National Computer Science Basketball Tournament and Top 4 in the university-wide departmental competition."
     ],
     icon: Trophy,
-    image: "src/assets/basketball.jpeg",
+    image: BasketballImage,
     color: "from-yellow-500 to-orange-500"
   },
   {
@@ -43,7 +47,7 @@ const volunteers = [
       "Supported 30+ students through assignments and semester projects, organized study groups, and assisted with grading and weekly tutoring."
     ],
     icon: GraduationCap,
-    image: "src/assets/TA.png",
+    image: TAImage,
     color: "from-cyan-500 to-blue-500"
   }
 ];

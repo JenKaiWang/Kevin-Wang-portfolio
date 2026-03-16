@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Mail, Linkedin, Github, FileText, Sparkles, Zap, Star } from "lucide-react";
-import ProfileImage from "../src/assets/Profile_Photo.png";
+import ProfileImage from "../../assets/Profile_Photo.png";
 
 export function Hero() {
   return (
@@ -198,7 +198,7 @@ export function Hero() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <img 
-                  src="ProfileImage" 
+                  src={ProfileImage}
                   alt="Kevin Wang" 
                   className="w-full h-full object-cover"
                 />

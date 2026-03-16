@@ -155,7 +155,7 @@ export function Projects() {
                   )}
                 </div> */}
                 <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="pixel-font text-xl font-bold text-white mb-2 leading-snug break-words">
+                  <h3 className="body-font text-xl font-bold text-white mb-2 leading-snug break-words">
                     {project.title}
                   </h3>
 

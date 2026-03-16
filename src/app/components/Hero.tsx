@@ -123,7 +123,7 @@ export function Hero() {
                 Contact Me
               </motion.a> */}
               <motion.a 
-                href={`${import.meta.env.BASE_URL}resume.pdf`}
+                href={`${import.meta.env.BASE_URL}Resume.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white rounded-full font-medium transition-all shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 hover:scale-105"

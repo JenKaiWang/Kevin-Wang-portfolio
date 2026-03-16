@@ -104,7 +104,7 @@ export function Hero() {
               transition={{ delay: 0.5 }}
               className="text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
-              Passionate CS Master’s graduate focused on game design, interactive storytelling, and building immersive projects that bring game worlds to life.
+              Passionate CS Master’s graduate focused on game developer, interactive storytelling, and building immersive projects that bring game worlds to life.
             </motion.p>
 
             <motion.div 

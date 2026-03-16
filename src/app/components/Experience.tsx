@@ -1,6 +1,10 @@
 import { motion } from "motion/react";
 import { Calendar, MapPin, Briefcase, Zap } from "lucide-react";
 import QQStudioImage from "../../assets/QQ-Studio.png";
+import AubotImage from "../../assets/Aubot.png";
+import KINNThaiImage from "../../assets/KINN-Thai.webp";
+import IIIImage from "../../assets/III.jpg";
+import SHTImage from "../../assets/SHT.png";
 
 const experiences = [
   {
@@ -22,7 +26,7 @@ const experiences = [
     description: [
       "Reviewed 1,000+ C/C++ exercises, created technical solutions, and collaborated with a distributed team to maintain quality."
     ],
-    image: "src/assets/Aubot.png",
+    image: AubotImage,
     color: "from-black-500 to-white-500"
   },
   {
@@ -33,7 +37,7 @@ const experiences = [
     description: [
       "Launched an online reservation system in SimplyBook.me, handling setup, testing, and user documentation."
     ],
-    image: "src/assets/KINN-Thai.webp",
+    image: KINNThaiImage,
     color: "from-red-500 to-purple-500"
   },
   {
@@ -44,7 +48,7 @@ const experiences = [
     description: [
       "Collected road test data, supported equipment testing, and helped turn client needs into smart-driving tools and test plans."
     ],
-    image: "src/assets/III.jpg",
+    image: IIIImage,
     color: "from-blue-500 to-cyan-500"
   },
   {
@@ -55,7 +59,7 @@ const experiences = [
     description: [
       "Designed a SQL/MySQL database, integrated it with web pages, and supported product requirements and iterative updates."
     ],
-    image: "src/assets/SHT.png",
+    image: SHTImage,
     color: "from-teal-500 to-green-500"
   }
 ];

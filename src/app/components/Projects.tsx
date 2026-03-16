@@ -30,7 +30,7 @@ const projects = [
     title: "Iowa's First Congressional District Forecasting",
     date: "Sep 2024 - Dec 2024",
     desc: "Built an electoral forecasting pipeline for Iowa's 1st Congressional District using Census API demographics. Trained Random Forest and Keras/TensorFlow models for classification.",
-    link: `${import.meta.env.BASE_URL}Iowa-Project-Report.pdf.pdf`,
+    link: `${import.meta.env.BASE_URL}Iowa-Project-Report.pdf`,
     tags: ["Python", "TensorFlow", "Data Science", "API"],
     color: "yellow"
   },

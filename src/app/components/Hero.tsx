@@ -93,7 +93,7 @@ export function Hero() {
               transition={{ delay: 0.4 }}
               className="text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
             >
-              Kevin 
+              Kevin&nbsp;
               <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">Wang
               </span>
             </motion.h1>

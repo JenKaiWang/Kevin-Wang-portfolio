@@ -32,20 +32,24 @@ export function Navbar() {
           
           <div className="hidden md:flex items-center space-x-8">
             <button onClick={() => scrollToSection('about')} className="text-slate-300 hover:text-pink-400 transition-colors text-sm font-medium relative group">
-              About
+              About me
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 group-hover:w-full transition-all duration-300" />
             </button>
             <button onClick={() => scrollToSection('experience')} className="text-slate-300 hover:text-purple-400 transition-colors text-sm font-medium relative group">
-              Experience
+              Work Experiences
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 group-hover:w-full transition-all duration-300" />
             </button>
             <button onClick={() => scrollToSection('volunteer')} className="text-slate-300 hover:text-cyan-400 transition-colors text-sm font-medium relative group">
-              Volunteer
+              Volunteer Experiences
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 group-hover:w-full transition-all duration-300" />
             </button>
             <button onClick={() => scrollToSection('projects')} className="text-slate-300 hover:text-yellow-400 transition-colors text-sm font-medium relative group">
-              Projects
+              Project Experience
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover:w-full transition-all duration-300" />
+            </button>
+            <button onClick={() => scrollToSection('game-design')} className="text-slate-300 hover:text-pink-400 transition-colors text-sm font-medium relative group">
+              Game Project
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 group-hover:w-full transition-all duration-300" />
             </button>
           </div>
 

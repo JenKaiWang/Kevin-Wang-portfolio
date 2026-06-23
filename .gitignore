@@ -38,4 +38,9 @@ Thumbs.db
 
 node_modules
 dist
+.vite
 .vscode
+
+# Local tooling and temporary files
+.tools/
+node-index.json

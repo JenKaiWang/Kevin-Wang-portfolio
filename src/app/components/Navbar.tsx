@@ -35,6 +35,10 @@ export function Navbar() {
               About me
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 group-hover:w-full transition-all duration-300" />
             </button>
+            <button onClick={() => scrollToSection('game-design')} className="text-slate-300 hover:text-pink-400 transition-colors text-sm font-medium relative group">
+              Game Project
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 group-hover:w-full transition-all duration-300" />
+            </button>
             <button onClick={() => scrollToSection('experience')} className="text-slate-300 hover:text-purple-400 transition-colors text-sm font-medium relative group">
               Work Experiences
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500 group-hover:w-full transition-all duration-300" />
@@ -46,10 +50,6 @@ export function Navbar() {
             <button onClick={() => scrollToSection('projects')} className="text-slate-300 hover:text-yellow-400 transition-colors text-sm font-medium relative group">
               Project Experience
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-500 group-hover:w-full transition-all duration-300" />
-            </button>
-            <button onClick={() => scrollToSection('game-design')} className="text-slate-300 hover:text-pink-400 transition-colors text-sm font-medium relative group">
-              Game Project
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-500 group-hover:w-full transition-all duration-300" />
             </button>
           </div>
 

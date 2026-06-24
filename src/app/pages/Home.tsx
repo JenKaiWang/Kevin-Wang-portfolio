@@ -11,10 +11,10 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <GameDesign />
       <Experience />
       <Volunteering />
       <Projects />
-      <GameDesign />
       <Footer />
     </>
   );

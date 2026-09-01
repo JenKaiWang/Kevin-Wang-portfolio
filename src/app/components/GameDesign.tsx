@@ -1,32 +1,244 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { ChevronLeft, ChevronRight, Clapperboard, Gamepad2 } from "lucide-react";
+import { Clapperboard, Gamepad2, Play } from "lucide-react";
+import agent067Video from "../../assets/UEFN Bootcamp video.mp4";
+import agent067Thumbnail from "../../assets/Agent 067 Thumbnail.png";
+import playerBackground from "../../assets/Playerbackground.png";
+import parkingLotScene from "../../assets/Parking Lot Scene.png";
+import nightClubScene from "../../assets/Night Club Scene.png";
+import labScene from "../../assets/Lab Scene.png";
 import welcomeStrangerVideo1 from "../../assets/Welcome Stranger_Video1.mp4";
 import welcomeStrangerVideo2 from "../../assets/Welcome Stranger_Video2.mp4";
 
-const videos = [
+type MediaItem = {
+  type: "video" | "image";
+  src: string;
+  label: string;
+  alt?: string;
+};
+
+type ProjectDetailsProps = {
+  name: string;
+  details: [string, string][];
+  story: string[];
+};
+
+const agent067Media: MediaItem[] = [
   {
-    src: welcomeStrangerVideo1,
-    label: "Character & Animations Design Prototype"
+    type: "video",
+    src: agent067Video,
+    label: "Gameplay"
   },
   {
-    src: welcomeStrangerVideo2,
-    label: "Dialogue System & Storytelling Design Prototype"
+    type: "image",
+    src: agent067Thumbnail,
+    label: "Thumbnail",
+    alt: "Agent 067 game thumbnail"
+  },
+  {
+    type: "image",
+    src: playerBackground,
+    label: "Agency Office",
+    alt: "Agent 067 player background"
+  },
+  {
+    type: "image",
+    src: parkingLotScene,
+    label: "Parking Lot Scene",
+    alt: "Agent 067 parking lot scene"
+  },
+  {
+    type: "image",
+    src: nightClubScene,
+    label: "Night Club Scene",
+    alt: "Agent 067 night club scene"
+  },
+  {
+    type: "image",
+    src: labScene,
+    label: "Laboratory",
+    alt: "Agent 067 lab scene"
   }
 ];
 
+const welcomeStrangerMedia: MediaItem[] = [
+  {
+    type: "video",
+    src: welcomeStrangerVideo2,
+    label: "Dialogue System & Storytelling Design Prototype"
+  },
+  {
+    type: "video",
+    src: welcomeStrangerVideo1,
+    label: "Character & Animation Design Prototype"
+  }
+];
+
+function Agent067Gallery() {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const selectedMedia = agent067Media[selectedIndex];
+
+  return (
+    <div className="order-2 min-w-0 lg:order-1">
+      <div className="overflow-hidden rounded-2xl border-2 border-cyan-400/40 bg-slate-900 shadow-2xl shadow-cyan-500/20">
+        <div className="flex items-center justify-between gap-4 border-b border-white/10 bg-slate-950/80 px-5 py-4">
+          <div className="flex shrink-0 items-center gap-2">
+            <span className="h-3 w-3 rounded-full bg-pink-500" />
+            <span className="h-3 w-3 rounded-full bg-yellow-400" />
+            <span className="h-3 w-3 rounded-full bg-cyan-400" />
+          </div>
+          <span className="body-font text-right text-sm text-slate-300" aria-live="polite">
+            {selectedMedia.label}
+          </span>
+        </div>
+
+        <div className="aspect-video bg-slate-950 p-3 sm:p-4">
+          {selectedMedia.type === "video" ? (
+            <video
+              src={selectedMedia.src}
+              className="h-full w-full rounded-xl border border-white/10 bg-black object-contain shadow-xl"
+              controls
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : (
+            <img
+              src={selectedMedia.src}
+              alt={selectedMedia.alt ?? selectedMedia.label}
+              className="h-full w-full rounded-xl border border-white/10 bg-black object-contain shadow-xl"
+            />
+          )}
+        </div>
+      </div>
+
+      <div className="agent067-scrollbar mt-4 flex gap-3 overflow-x-auto pb-2" aria-label="Agent 067 media gallery">
+        {agent067Media.map((item, index) => {
+          const isSelected = selectedIndex === index;
+
+          return (
+            <button
+              key={item.label}
+              type="button"
+              onClick={() => setSelectedIndex(index)}
+              aria-label={`Show ${item.label}`}
+              aria-pressed={isSelected}
+              className={`group min-w-[132px] overflow-hidden rounded-xl border-2 bg-slate-950 text-left transition-all sm:min-w-[148px] ${
+                isSelected
+                  ? "border-cyan-300 shadow-lg shadow-cyan-500/30"
+                  : "border-white/10 hover:border-cyan-400/60"
+              }`}
+            >
+              <span className="relative block aspect-video overflow-hidden bg-black">
+                {item.type === "video" ? (
+                  <>
+                    <video
+                      src={item.src}
+                      className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
+                      muted
+                      playsInline
+                      preload="metadata"
+                    />
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/20">
+                      <span className="rounded-full bg-cyan-400/90 p-2 text-slate-950 shadow-lg">
+                        <Play className="h-4 w-4" fill="currentColor" />
+                      </span>
+                    </span>
+                  </>
+                ) : (
+                  <img
+                    src={item.src}
+                    alt=""
+                    className="h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
+                    loading="lazy"
+                  />
+                )}
+              </span>
+              <span className={`body-font block px-3 py-2 text-sm ${isSelected ? "text-cyan-300" : "text-slate-300"}`}>
+                {item.label}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function MediaGallery({ items }: { items: MediaItem[] }) {
+  return (
+    <div className="order-2 space-y-6 lg:order-1">
+      {items.map((item) => (
+        <div
+          key={item.label}
+          className="relative rounded-2xl overflow-hidden border-2 border-cyan-400/40 bg-slate-900 shadow-2xl shadow-cyan-500/20"
+        >
+          <div className="flex items-center justify-between gap-4 px-5 py-4 bg-slate-950/80 border-b border-white/10">
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="w-3 h-3 rounded-full bg-pink-500" />
+              <span className="w-3 h-3 rounded-full bg-yellow-400" />
+              <span className="w-3 h-3 rounded-full bg-cyan-400" />
+            </div>
+            <span className="body-font text-slate-300 text-sm text-right">{item.label}</span>
+          </div>
+
+          <div className="flex items-center justify-center p-3 sm:p-4 bg-slate-950">
+            {item.type === "video" ? (
+              <video
+                src={item.src}
+                className="w-full h-auto max-h-[480px] rounded-xl object-contain bg-black border border-white/10 shadow-xl"
+                controls
+                loop
+                playsInline
+                preload="metadata"
+              />
+            ) : (
+              <img
+                src={item.src}
+                alt={item.alt ?? item.label}
+                className="w-full h-auto max-h-[480px] rounded-xl object-contain bg-black border border-white/10 shadow-xl"
+                loading="lazy"
+              />
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ProjectDetails({ name, details, story }: ProjectDetailsProps) {
+  return (
+    <div className="order-1 bg-slate-900/80 backdrop-blur-sm rounded-2xl border-2 border-pink-500/40 shadow-2xl shadow-pink-500/20 p-6 sm:p-8 lg:order-2">
+      <span className="body-font text-cyan-300 text-sm font-semibold tracking-wide uppercase mb-3 block">
+        Project Name
+      </span>
+      <h3 className="body-font text-2xl sm:text-3xl font-bold text-white mb-4">{name}</h3>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        {details.map(([label, value]) => (
+          <div key={label} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+            <p className="body-font text-slate-500 text-sm mb-1">{label}</p>
+            <p className="body-font text-slate-100 font-semibold">{value}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/5 p-5">
+        <h4 className="body-font text-cyan-300 font-semibold mb-3">Story Background</h4>
+        <div className="space-y-4">
+          {story.map((paragraph) => (
+            <p key={paragraph} className="body-font text-slate-300 text-base leading-7">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function GameDesign() {
-  const [activeVideo, setActiveVideo] = useState(0);
-  const currentVideo = videos[activeVideo];
-
-  const showPreviousVideo = () => {
-    setActiveVideo((current) => (current === 0 ? videos.length - 1 : current - 1));
-  };
-
-  const showNextVideo = () => {
-    setActiveVideo((current) => (current + 1) % videos.length);
-  };
-
   return (
     <section id="game-design" className="py-24 bg-gradient-to-b from-purple-950 to-slate-950 relative overflow-hidden">
       <div className="absolute inset-0 opacity-20">
@@ -52,93 +264,51 @@ export function GameDesign() {
           <div className="w-32 h-1.5 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 mx-auto rounded-full mt-4" />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-stretch"
-        >
-          <div className="relative rounded-2xl overflow-hidden border-2 border-cyan-400/40 bg-slate-900 shadow-2xl shadow-cyan-500/20 flex flex-col">
-            <div className="flex items-center justify-between px-5 py-4 bg-slate-950/80 border-b border-white/10">
-              <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-pink-500" />
-                <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                <span className="w-3 h-3 rounded-full bg-cyan-400" />
-              </div>
-              <span className="body-font text-slate-300 text-sm">{currentVideo.label}</span>
-            </div>
+        <div className="space-y-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-start"
+          >
+            <Agent067Gallery />
+            <ProjectDetails
+              name="Agent 067"
+              details={[
+                ["Engine", "Unreal Editor For Fortnite (UEFN)"],
+                ["Team Size", "1"],
+                ["Status", "Published"],
+                ["Island Code", "7540-2367-0251"]
+              ]}
+              story={[
+                "Selected for the UEFN Student Bootcamp, where I completed and published a game within three weeks.",
+                "Agent 067 is a third-person shooter featuring three levels, increasingly challenging enemies, and boss fights.The game was developed entirely using UEFN devices, including game condition triggers, NPC configuration, weapon spawning, and level transitions."
+              ]}
+            />
+          </motion.div>
 
-            <div className="relative flex-1 flex items-center justify-center p-3 sm:p-4 bg-slate-950">
-              <video
-                key={currentVideo.src}
-                src={currentVideo.src}
-                className="w-full h-auto max-h-[480px] rounded-xl object-contain bg-black border border-white/10 shadow-xl"
-                controls
-                loop
-                playsInline
-                preload="metadata"
-              />
-
-              <button
-                type="button"
-                onClick={showPreviousVideo}
-                aria-label="Previous video"
-                className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-950/75 border border-white/20 text-white flex items-center justify-center hover:bg-cyan-500/80 hover:border-cyan-300 transition-colors"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-
-              <button
-                type="button"
-                onClick={showNextVideo}
-                aria-label="Next video"
-                className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-950/75 border border-white/20 text-white flex items-center justify-center hover:bg-pink-500/80 hover:border-pink-300 transition-colors"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
-
-            <div className="flex items-center justify-center gap-2 py-4 bg-slate-950/90">
-              {videos.map((video, index) => (
-                <span
-                  key={video.label}
-                  className={`h-2.5 rounded-full transition-all ${
-                    activeVideo === index ? "w-8 bg-cyan-300" : "w-2.5 bg-white/35"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-slate-900/80 backdrop-blur-sm rounded-2xl border-2 border-pink-500/40 shadow-2xl shadow-pink-500/20 p-6 sm:p-8 flex flex-col justify-center">
-            <span className="body-font text-cyan-300 text-sm font-semibold tracking-wide uppercase mb-3">Project Name</span>
-            <h3 className="body-font text-2xl sm:text-3xl font-bold text-white mb-4">
-              Welcome Stranger
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              {[
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-start border-t border-white/10 pt-20"
+          >
+            <MediaGallery items={welcomeStrangerMedia} />
+            <ProjectDetails
+              name="Welcome Stranger"
+              details={[
                 ["Engine", "Unreal Engine 5"],
-                ["Focus", "Technical Game Design"],
+                ["Team Size", "1"],
                 ["Status", "In Process"]
-              ].map(([label, value]) => (
-                <div key={label} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                  <p className="body-font text-slate-500 text-sm mb-1">{label}</p>
-                  <p className="body-font text-slate-100 font-semibold">{value}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/5 p-5 mb-6">
-              <h4 className="body-font text-cyan-300 font-semibold mb-3">Story Background</h4>
-              <p className="body-font text-slate-300 text-base leading-7">
-                Welcome Stranger is inspired by Kevin's real experience living across different countries, facing unfamiliar
-                challenges, and learning how to move through confusing situations. The game explores what it feels like to
-                arrive somewhere new, search for direction, and slowly build a sense of belonging.
-              </p>
-            </div>
-          </div>
-        </motion.div>
+              ]}
+              story={[
+                "Welcome Stranger is inspired by Kevin's real experience living across different countries, facing unfamiliar challenges, and learning how to move through confusing situations. The game explores what it feels like to arrive somewhere new, search for direction, and slowly build a sense of belonging."
+              ]}
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

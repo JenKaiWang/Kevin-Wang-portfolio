@@ -46,12 +46,38 @@ If the repo is accidentally changed to private and then back to public:
 
 ## Latest Update Summary
 
-The latest website update changed the project detail section layout for the Game Project area.
+The latest website work expanded and refined the Game Project and Work Experience sections.
 
-- Adjusted video container spacing so the video preview fits better.
-- Removed extra info boxes under Story Background.
-- Changed `General` to `Focus` for `Technical Game Design`.
-- Kept the layout ready for additional project entries later.
+### Agent 067
+
+- Added `Agent 067` above `Welcome Stranger` in the Game Project section.
+- Added the UEFN gameplay video, project thumbnail, agency office, parking lot, night club, and laboratory images.
+- Added project information for Unreal Editor for Fortnite (UEFN), team size, published status, island code, and story background.
+- Replaced the original vertically stacked Agent 067 media cards with a compact Steam-style gallery.
+- The gameplay video is selected by default, and React state switches the main viewer when a thumbnail is selected.
+- The selected thumbnail uses a cyan border and glow, and the main viewer label updates dynamically.
+- All media uses a consistent 16:9 viewer so switching items does not change the page height.
+- On desktop, the gallery remains on the left and project information remains on the right.
+- On mobile, project information appears before the media gallery.
+- Added a gallery-specific horizontal scrollbar with a dark navy track, cyan thumb, pink hover state, rounded corners, and Firefox support.
+
+### Welcome Stranger
+
+- Removed the arrow-based video carousel.
+- Both prototype videos are now displayed directly, with Dialogue System and Storytelling first and Character and Animation second.
+- Kept the existing project information and Story Background design.
+
+### Work Experience
+
+- Added Alliance Française de Chicago as the newest Work Experience entry.
+- Added and connected the updated `AFImage.png` logo asset.
+- Corrected the image import filename so the AF image builds and displays correctly.
+
+## Latest Local Verification
+
+- The latest `npm run build` completed successfully.
+- Vite transformed 2,038 modules and included the new AF and Agent 067 media assets in the production build.
+- No unrelated portfolio sections were redesigned as part of these updates.
 
 ## Latest Deployment Check
 

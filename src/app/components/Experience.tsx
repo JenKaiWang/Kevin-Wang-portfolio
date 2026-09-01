@@ -5,18 +5,30 @@ import AubotImage from "../../assets/Aubot.png";
 import KINNThaiImage from "../../assets/KINN-Thai.webp";
 import IIIImage from "../../assets/III.jpg";
 import SHTImage from "../../assets/SHT.png";
+import AFImage from "../../assets/AFImage.png";
 
 const experiences = [
-  {
+    {
     company: "QQ Studio",
     role: "Game Developer Intern",
     location: "Remote (USA)",
     date: "Feb 2026 – Present",
     description: [
-      "Built gameplay systems, AI, and levels in Unreal Engine using C++ and Blueprints, while supporting asset integration and scene setup."
+      "Developed a web-based playable game ad with HTML, CSS, and JavaScript, using Codex and Claude Code to accelerate implementation, debugging, UI iteration, and asset integration."
     ],
     image: QQStudioImage,
     color: "from-white-500 to-green-500"
+    },
+    {
+    company: "Alliance Française de Chicago",
+    role: "Software Engineer Intern",
+    location: "Chicago IL, USA",
+    date: "Jul 2026 – Present",
+    description: [
+      "Identifying opportunities to bring agentic AI into their workflow to streamline day-to-day operations"
+    ],
+    image: AFImage,
+    color: "from-white-500 to-red-500"
   },
   {
     company: "Aubot",
@@ -33,7 +45,7 @@ const experiences = [
     company: "KINN Thai Eatery",
     role: "Software Engineer Intern",
     location: "Remote (USA)",
-    date: "Jul 2025 – Present",
+    date: "Jul 2025 – Dec 2025",
     description: [
       "Launched an online reservation system in SimplyBook.me, handling setup, testing, and user documentation."
     ],
